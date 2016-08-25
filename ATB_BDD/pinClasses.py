@@ -13,21 +13,15 @@ class DigitalPinSetup:
         self.direction = direction
         self.value = value
         DigitalPinSetup.pinCount += 1
+        a.pinMode(self.pinNumber, self.direction)
 
-    def setPin(self):
-        a.pinMode(self.pinNumber,self.direction)
-    
     def displayPinCount(self):
         print "# of pins used is: %d" % DigitalPinSetup.pinCount
 
     def displayPinInfo(self):
         print "Pin #: ", self.pinNumber, "\nName: ", self.name, "\nDirection: ", self.direction, "\nValue: ", self.value
 
-pin22 = DigitalPinSetup(22, "Y1", "OUTPUT", 1)
+    def energize(self):
+        a.digitalWrite(self.pinNumber, a.HIGH)
 
-pin22.setPin()
-
-a.digitalWrite(22, a.HIGH)
-
-
-
+Y1 = DigitalPinSetup(22, "Y1", a.OUTPUT, 2)
