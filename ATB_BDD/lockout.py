@@ -5,6 +5,3 @@ class unit():
 
     def supplyPower(self):
         self.unit = 1
-
-Testing source tree
-    
