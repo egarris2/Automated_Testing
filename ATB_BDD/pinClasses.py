@@ -1,27 +1,43 @@
+#import serial library for arduino
 from nanpy import (ArduinoApi, SerialManager)
+
 from time import sleep
 
+#setup serial communication with Arduino
 connection = SerialManager('COM8')
 a = ArduinoApi(connection=connection)
 
-class DigitalPinSetup:
-    pinCount = 0
+#creating class for digital pins
+class DigitalPin():
 
-    def __init__(self, pinNumber, name, direction, value):
+    #setting attributes for pins
+    def __init__(self, pinNumber, direction, value):
         self.pinNumber = pinNumber
-        self.name = name
         self.direction = direction
         self.value = value
-        DigitalPinSetup.pinCount += 1
+        #sets the actual pin upon initialization of object
         a.pinMode(self.pinNumber, self.direction)
 
-    def displayPinCount(self):
-        print "# of pins used is: %d" % DigitalPinSetup.pinCount
-
+    #print pin information
     def displayPinInfo(self):
-        print "Pin #: ", self.pinNumber, "\nName: ", self.name, "\nDirection: ", self.direction, "\nValue: ", self.value
+        print "Pin #: ", self.pinNumber, "\nDirection: ", self.direction, "\nValue: ", self.value
 
-    def energize(self):
+    #turns on an OUTPUT pin
+    def turnOn(self):
         a.digitalWrite(self.pinNumber, a.HIGH)
+        self.value = a.HIGH
 
-Y1 = DigitalPinSetup(22, "Y1", a.OUTPUT, 2)
+    #turns off an OUTPUT pin
+    def turnOff(self):
+        a.digitalWrite(self.pinNumber, a.LOW)
+        self.value = a.LOW
+
+    #reads whether an INPUT pin is reading 1 or zero and prints
+    def readPin(self):
+        self.value = a.digitalRead(self.pinNumber)
+        print self.value
+
+#creating DigitalPinSetup object for "flow switch"
+FS = DigitalPin(22, a.OUTPUT, a.HIGH)
+L = DigitalPin(26, a.INPUT, a.LOW)
+

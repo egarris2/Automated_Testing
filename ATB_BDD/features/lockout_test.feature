@@ -1,6 +1,8 @@
 Feature: Lockout shuts down compressor
 
-Scenario: Too much water in the condensate drain pan
-  Given Y1 is on
-    When condensate overflow is closed
-    Then ICM sends a lockout signal
+Scenario: Flow is lost
+  Given FS is on
+    When Flow stops
+    Then FS is off
+    When Flow starts again
+    Then FS is on
