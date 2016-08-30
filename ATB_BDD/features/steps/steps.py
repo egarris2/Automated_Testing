@@ -2,23 +2,18 @@ from behave import given, when, then
 from pinClasses import *
 from time import sleep
 
-@given('FS is on')
+@given('HP is closed and L is off')
 def step_impl(context):
-    FS
+    HP
+    L
 
-@when('Flow stops')
+@when('High pressure goes out of bounds')
 def step_impl(context):
-    FS.turnOff()
-    sleep(3)
+    HP.turnOff()
+    sleep(30)
+    L.readPin()
 
-@then('FS is off')
+@then('HP is open and L is on')
 def step_impl(context):
-    assert (FS.value == 1)
-
-@when('Flow starts again')
-def step_impl(context):
-    FS.turnOn()
-
-@then('FS is on')
-def step_impl(context):
-    assert (FS.value == 1)
+    assert (HP.value == 0)
+    assert (L.value == 1)

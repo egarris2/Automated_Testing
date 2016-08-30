@@ -1,8 +1,6 @@
-Feature: Lockout shuts down compressor
+Feature: High Pressure Fault Scenario
 
-Scenario: Flow is lost
-  Given FS is on
-    When Flow stops
-    Then FS is off
-    When Flow starts again
-    Then FS is on
+Scenario: High Pressure Fault
+	Given HP is closed and L is off
+		When High pressure goes out of bounds
+		Then HP is open and L is on
