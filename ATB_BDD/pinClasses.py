@@ -1,5 +1,6 @@
 #import nanpy serial library for arduino. Information found at https://nanpy.github.io/
 from nanpy import (ArduinoApi, SerialManager)
+from nanpy.MCP41xxx import MCP41xxx
 
 from time import sleep
 
@@ -41,11 +42,13 @@ class DigitalPin():
         for x in range(0,1000):
             if a.digitalRead(self.pinNumber) == 1:
                 self.value = a.HIGH #sets self.value high if signal is recieved
+                break
 
 #creating DigitalPinSetup objects for "High Pressure Switch" and "Lockout"
 HP = DigitalPin(22, a.OUTPUT, a.HIGH)
 L = DigitalPin(26, a.INPUT, a.LOW)
 
+DigPot = MCP41xxx(49, connection=connection)
 """print L.value
 HP.turnOff()
 sleep(.5)
