@@ -1,0 +1,17 @@
+*Required software for Automated test bench
+	Nanpy 		-- use Arduino board with Python	
+	https://github.com/nanpy
+
+	Nanpy Firmware	-- firmware for arduino board for Nanpy
+	https://github.com/nanpy/nanpy-firmware
+
+	Behave		-- behavior driven development tool
+	http://pythonhosted.org/behave/
+
+*Notes on software
+	Nanpy 		-- all the .py files required for functionality Nanpy
+	
+	Nanpy Firmware	-- the arduino code for nanpy that gets uploaded to the Mega 
+			-- Need to enable MCP41xxx in the arduino code
+
+	Behave		-- installed with easy_install

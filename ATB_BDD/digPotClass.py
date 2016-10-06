@@ -20,7 +20,7 @@ class DigPot():
         self.value = resistance
 
 
-Therm1 = DigPot(0, 0)
-Therm2 = DigPot(1, 0)
-Therm3 = DigPot(2, 0)
-Therm4 = DigPot(3, 0)
+Therm1 = DigPot(0, 255)
+Therm2 = DigPot(1, 255)
+Therm3 = DigPot(2, 255)
+Therm4 = DigPot(3, 255)
