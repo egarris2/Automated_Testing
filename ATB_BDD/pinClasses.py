@@ -48,7 +48,6 @@ class DigitalPin():
 HP = DigitalPin(22, a.OUTPUT, a.HIGH)
 L = DigitalPin(26, a.INPUT, a.LOW)
 
-DigPot = MCP41xxx(49, connection=connection)
 """print L.value
 HP.turnOff()
 sleep(.5)
