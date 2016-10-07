@@ -5,7 +5,7 @@ from time import sleep
 from pinClasses import connection
 
 #instance of MCP41xxx class from Nanpy
-d = MCP41xxx(49, connection=connection)
+d = MCP41xxx(53, connection=connection)
 
 #creating class for digital potentiometers MCP41xxx
 class DigPot():
@@ -19,8 +19,7 @@ class DigPot():
         d.analogWrite(self.channel, resistance)
         self.value = resistance
 
-
-Therm1 = DigPot(0, 255)
-Therm2 = DigPot(1, 255)
-Therm3 = DigPot(2, 255)
-Therm4 = DigPot(3, 255)
+LCT     = DigPot(0, 0)
+DGT     = DigPot(1, 0)
+DLWT    = DigPot(2, 0)
+SCT     = DigPot(3, 0)

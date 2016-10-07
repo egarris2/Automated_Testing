@@ -1,4 +1,10 @@
 *Required software for Automated test bench
+	Arduino IDE 	-- Environment for programming arduino board
+	https://www.arduino.cc/en/Main/Software	
+
+	Python 2.7	-- Python
+	https://www.python.org/downloads/
+
 	Nanpy 		-- use Arduino board with Python	
 	https://github.com/nanpy
 
@@ -8,10 +14,28 @@
 	Behave		-- behavior driven development tool
 	http://pythonhosted.org/behave/
 
+	MCP41xxx	-- Library for digital potentiometers
+	https://github.com/nanpy/nanpy.git
+
+	ATB repository	-- repository containing Python code for Automated test bench
+
 *Notes on software
 	Nanpy 		-- all the .py files required for functionality Nanpy
 	
 	Nanpy Firmware	-- the arduino code for nanpy that gets uploaded to the Mega 
-			-- Need to enable MCP41xxx in the arduino code
+			-- Need to enable MCP41xxx in cfg.h and cfg_defaults.h
 
 	Behave		-- installed with easy_install
+
+*Required Hardware for Automated test bench
+	Arduino Mega	-- control board using ATMEGA2560
+
+	ATB pcb		-- PCB designed in Eagle
+	https://bitbucket.org/Trey-Garrison/atb_hardware
+
+*Notes on setup
+	MCP42100 digital pots use SPI communication. On Arduino Mega pinout is as follows
+		MOSI -- pin 51 on Mega 			-- connects to SI on digital pot, pin 3
+		SCK  -- pin 52 on Mega 			-- connects to SCK on digital pot, pin 2
+		SS   -- pin 53 on Mega (by design) 	-- connects to CS on digital pot, pin 1
+	
