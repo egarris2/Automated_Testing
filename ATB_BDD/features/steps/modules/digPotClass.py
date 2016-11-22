@@ -23,3 +23,6 @@ LCT     = DigPot(0, 0)
 DGT     = DigPot(1, 0)
 DLWT    = DigPot(2, 0)
 SCT     = DigPot(3, 0)
+
+
+

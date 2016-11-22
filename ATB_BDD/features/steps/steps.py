@@ -2,23 +2,25 @@ from behave import given, when, then
 from modules.pinClasses import *
 from modules.digPotClass import *
 from time import sleep
-@given('HP is closed and L is off')
+@given('test 1 initial conditions')
 def step_impl(context):
+    R.on()
+
+    sleep(3)
+
     HP.off()
     LP.off()
     FS.off()
     CO.off()
     
-    LCT.setResistance(0)
-    DGT.setResistance(255)
-    DLWT.setResistance(0)
-    SCT.setResistance(255)
+    LCT.setResistance(235)
+    DGT.setResistance(252)
+    DLWT.setResistance(235)
+    SCT.setResistance(230)
 
     W1.off()
-    Y1.on()
-    O1.on()
+    Y1.off()
     
-    L
     A
     CC
     HWG
@@ -29,8 +31,14 @@ def step_impl(context):
 
 @when('High pressure goes out of bounds')
 def step_impl(context):
-    HP.on()
-    L.readPin()
+      sleep(5)
+      Y1.on()
+##    L.readPin()
+##    A.readPin()
+##    CC.readPin()
+##    HWG.readPin()
+##    W2.readPin()
+##    O.readPin()
 
 @then('HP is open and L is on')
 def step_impl(context):
