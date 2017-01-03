@@ -4,6 +4,7 @@ Scenario: Testing table data
 	Given 	Initial Conditions
 		| Parameter | State |
 		| R			| ON	|
+		| WAIT		| 5		|
 		| Y1 		| ON	|
 		| O 		| OFF	|
 		| W1 		| OFF	|
@@ -11,11 +12,26 @@ Scenario: Testing table data
 		| LP		| OFF	|
 		| FS		| OFF	|
 		| CO		| OFF	|
-		| LCT		| 458	|
-		| DGT		| 132	|
-		| DLWT		| 457	|
-		| SCT		| 511	|
+		| LCT		| 88	|
+		| DGT		| 188	|
+		| DLWT		| 88	|
+		| SCT		| 77.5	|
+		| WAIT		| 20	|
 	
-		When High pressure goes out of bounds
-		Then HP is open and CC is off
+		When Conditions change
+			| Parameter | State |
+			| R			| ON	|
+			| Y1 		| ON	|
+			| O 		| OFF	|
+			| W1 		| OFF	|
+			| HP		| OFF	|
+			| LP		| OFF	|
+			| FS		| OFF	|
+			| CO		| OFF	|
+			| LCT		| 88	|
+			| DGT		| 188	|
+			| DLWT		| 88	|
+			| SCT		| 77.5	|
+			| WAIT		| 20	|
+		Then Check final conditions
 
