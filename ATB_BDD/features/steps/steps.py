@@ -58,7 +58,31 @@ def step_impl(context):
             except ValueError:
                 p.off()
 
-
+    L.readPin()
+    CC.readPin()
+    A.readPin()
+    O.readPin()
+    W2.readPin()
+    HWG.readPin()
+    
 @then('Check final conditions')
 def step_impl(context):
-    assert (R.value == 1)
+
+    TableInfo.parameter = []
+    TableInfo.state = []
+    
+    for row in context.table:
+        TableInfo.addCondition(varParameter=eval(row['Parameter']), varState=row['State'])
+
+    for x in range (0,len(TableInfo.parameter)):
+        p = TableInfo.parameter[x]
+        s = TableInfo.state[x]
+
+        TableInfo.printParam(x + 1)
+        
+        if s == 'ON':
+            assert (p.value == 1)
+
+        else:
+            assert (p.value == 0)
+    

@@ -16,7 +16,7 @@ Scenario: Testing table data
 		| DGT		| 188	|
 		| DLWT		| 88	|
 		| SCT		| 77.5	|
-		| WAIT		| 20	|
+		| WAIT		| 5		|
 	
 		When Conditions change
 			| Parameter | State |
@@ -24,7 +24,7 @@ Scenario: Testing table data
 			| Y1 		| ON	|
 			| O 		| OFF	|
 			| W1 		| OFF	|
-			| HP		| OFF	|
+			| HP		| ON	|
 			| LP		| OFF	|
 			| FS		| OFF	|
 			| CO		| OFF	|
@@ -32,6 +32,15 @@ Scenario: Testing table data
 			| DGT		| 188	|
 			| DLWT		| 88	|
 			| SCT		| 77.5	|
-			| WAIT		| 20	|
+			| WAIT		| 40	|
+			
 		Then Check final conditions
+			| Parameter | State |
+			| L			| ON	|
+			| CC 		| OFF	|
+			| A 		| OFF	|
+			| O 		| OFF	|
+			| W2		| OFF	|
+			| HWG		| OFF	|
+			
 
