@@ -78,7 +78,7 @@ def step_impl(context):
         p = TableInfo.parameter[x]
         s = TableInfo.state[x]
 
-        TableInfo.printParam(x + 1)
+        TableInfo.printParam(x)
         
         if s == 'ON':
             assert (p.value == 1)
