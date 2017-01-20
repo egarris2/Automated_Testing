@@ -24,8 +24,6 @@ Scenario: Testing table data
 			| Y1 		| ON	|
 			| O1 		| ON	|
 			| W1 		| OFF	|
-			| WAIT		| 30	|
-			| O1		| OFF	|
 			| HP		| OFF	|
 			| LP		| OFF	|
 			| FS		| OFF	|
